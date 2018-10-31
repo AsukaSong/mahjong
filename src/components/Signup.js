@@ -23,24 +23,35 @@ class Login extends React.Component {
         title="报名"
         onCancel={() => this.props.changeStatus(false)}
         onOk={this.handleOk}
-        okText="登陆"
+        okText="提交"
         cancelText="返回"
+        getContainer={() => document.getElementById('modal')}
+        confirmLoading={this.props.isSignuping}
       >
         <Form>
-          <Avatar src={}/>
-          <FormItem labelCol={{span: 3, offset: 12}} label="用户名">
-            {this.props.form.getFieldDecorator('username', {
+          <FormItem label="雀魂用户名">
+            {this.props.form.getFieldDecorator('MajsoulUserName', {
               rules: [
-                { required: true, message: '请输入用户名' }
+                { required: true, message: '请输入雀魂用户名' },
+                { max: 20, message: '最多20个字符' }
               ]
             })(<Input autoComplete="off" onKeyDown={this.handleKeyDown} />)}
           </FormItem>
-          <FormItem labelCol={{span: 3, offset: 12}} label="密码">
-            {this.props.form.getFieldDecorator('password', {
+          <FormItem label="QQ">
+            {this.props.form.getFieldDecorator('QQ', {
               rules: [
-                { required: true, message: '请输入密码' }
+                { required: true, message: '请输入QQ' },
+                { max: 20, message: '最多20个字符' } 
               ]
-            })(<Input type="password" autoComplete="off" onKeyDown={this.handleKeyDown} />)}
+            })(<Input autoComplete="off" onKeyDown={this.handleKeyDown} />)}
+          </FormItem>
+          <FormItem label="手机号码">
+            {this.props.form.getFieldDecorator('Phone', {
+              rules: [
+                { required: true, message: '请输入手机号码' },
+                { max: 20, message: '最多20个字符' } 
+              ]
+            })(<Input autoComplete="off" onKeyDown={this.handleKeyDown} />)}
           </FormItem>
         </Form>
       </Modal>

@@ -1,5 +1,5 @@
 import config from './config.json'
-import { setLocalStorage } from './utils'
+import { setLocalStorage, getLocalStorage } from './utils'
 
 import { message } from 'antd'
 
@@ -36,7 +36,7 @@ export async function logIn({ username, password }) {
       body: encodeParams(requestBody),
     })
 
-    if(!response.ok) throw new Error(response.statusText)
+    if(!response.ok) throw new Error('用户名或密码错误')
 
     const data = await response.json()
 
@@ -55,8 +55,63 @@ export async function logIn({ username, password }) {
 
     message.success('登陆成功')
     setLocalStorage('token', token, data.expires_in)
+    setLocalStorage('userinfo', info)
 
     return info
+  } catch(e) {
+    message.error(e.message)
+  }
+}
+
+export async function signup(vals) {
+  try {
+    const res = await fetch(config.api + '/enroll/majsoul2018/register', {
+      method: 'POST',
+      headers: new Headers({
+        Authorization: getLocalStorage('token'),
+        'Content-type': 'application/json'
+      }),
+      body: JSON.stringify(vals),
+    })
+    console.log(res)
+
+    if(!res.ok) throw new Error(await res.text())
+    message.success('报名成功')
+  } catch(e) {
+    if(e.message === 'already_registered') {
+      message.error('你已经报名过了')
+      return
+    }
+    message.error(e.message)
+  }
+}
+
+export async function getMyStatus() {
+  try {
+    const res = await fetch(config.api + '/enroll/majsoul2018/me', {
+      headers: new Headers({
+        Authorization: getLocalStorage('token'),
+      }),
+    })
+
+    if(!res.ok) throw new Error(res.statusText)
+    if(res.status === 204) return null
+
+    const data = await res.json()
+    return data
+  } catch(e) {
+    message.error(e.message)
+  }
+}
+
+export async function getGlobalStatus() {
+  try {
+    const res = await fetch(config.api + '/enroll/majsoul2018/global')
+
+    if(!res.ok) throw new Error(res.statusText)
+
+    const data = await res.json()
+    return data
   } catch(e) {
     message.error(e.message)
   }

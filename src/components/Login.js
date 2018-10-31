@@ -20,21 +20,23 @@ class Login extends React.Component {
     return (
       <Modal
         visible={this.props.isShown}
-        title="使用CC98账号登陆"
+        title="使用CC98账号登录"
         onCancel={() => this.props.changeStatus(false)}
         onOk={this.handleOk}
-        okText="登陆"
+        okText="登录"
         cancelText="返回"
+        getContainer={() => document.getElementById('modal')}
+        confirmLoading={this.props.islogining}
       >
         <Form>
-          <FormItem labelCol={{span: 3, offset: 12}} label="用户名">
+          <FormItem label="用户名">
             {this.props.form.getFieldDecorator('username', {
               rules: [
                 { required: true, message: '请输入用户名' }
               ]
             })(<Input autoComplete="off" onKeyDown={this.handleKeyDown} />)}
           </FormItem>
-          <FormItem labelCol={{span: 3, offset: 12}} label="密码">
+          <FormItem label="密码">
             {this.props.form.getFieldDecorator('password', {
               rules: [
                 { required: true, message: '请输入密码' }

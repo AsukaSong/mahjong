@@ -2,39 +2,157 @@
 
 body {
   overflow-x: hidden;
+  -ms-overflow-style: none;
+}
+
+.ant-table-body {
+  -ms-overflow-style: none;
+}
+
+.ant-table-header {
+  margin-bottom: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.ant-table-tbody {
+  overflow-y: auto !important;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.ant-table-header::-webkit-scrollbar, .ant-table-body::-webkit-scrollbar {
+  display: none;
+}
+
+.ant-btn-lg {
+  padding: 20px 30px;
+  font-size: 16px;
+  border-radius: 4px;
+  height: 60px;
+}
+
+.ant-table-row td {
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 120px;
+  text-overflow: ellipsis;
+}
+
+.detail_modal .ant-modal-body {
+  white-space: pre-line;
+}
+
+.ant-table-tbody > tr > td {
+  padding: 8px 16px;
+}
+
+.detail_title {
+  font-size: 1.2em;
+  font-weight: 500;
 }
 
 #root {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .main {
   width: 100%;
-  min-height: 100%;
-  background-color: black;
+  height: 100%;
   position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
-.main>img {
+.first>img, .second>img {
   width: 100%;
-  min-width: 1902px;
+  min-width: 2000px;
   position: absolute;
   left: 50%;
   top: 0;
   transform: translate(-50%, 0);
 }
 
+.second>img {
+  transform: translate(-50%, -120%);
+  top: 40%;
+}
+
 .buttons {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   width: 50%;
   max-width: 300px;
   position: absolute;
   top: 65%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.buttons button {
+  margin-bottom: 40px;
+}
+
+.top {
+  position: fixed;
+  z-index: 1000;
+  background-color: #00000077;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+}
+
+.top a {
+  color: white;
+  margin-left: 20px;
+  font-size: 1.2em;
+  white-space: nowrap;
+}
+
+.top > div {
+  display: flex;
+  align-items: center;
+}
+
+.second {
+  background-color: #eee;
+}
+
+.title {
+  /* position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.5em !important;
+  cursor: text;
+  white-space: nowrap; */
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  /* background-color: white; */
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.info {
+  margin: .2em;
+  align-self: flex-end;
 }
