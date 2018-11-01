@@ -24,7 +24,7 @@ export default ({userName, isShown, changeStatus, isVerified, majsoulUserName, t
       <Col span={16}>{userName}</Col>
     </Row>
     <Row style={rowStyle}>
-      <Col style={colStyle} span={7}>雀魂用户名：</Col>
+      <Col style={colStyle} span={7}>雀魂昵称：</Col>
       <Col span={1} />
       <Col span={16}>{majsoulUserName}</Col>
     </Row>

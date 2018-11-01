@@ -8,7 +8,7 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import Detail from './components/SignupStatus'
 
-import config from './config.json'
+import config from './config.in.json'
 import text from './detail'
 
 import { logIn, signup, getGlobalStatus, getMyStatus } from './network'
@@ -57,7 +57,7 @@ class App extends Component {
       render: text => <span title={text}>{text}</span>
     },
     {
-      title: '雀魂用户名',
+      title: '雀魂昵称',
       dataIndex: 'majsoulUserName',
       width: 200,
       align: 'center',
@@ -205,7 +205,7 @@ class App extends Component {
             <ReactFullpage.Wrapper>
               <div className="section">
                 <div className="main first">
-                  <img src="http://cdn.cc98file0.inzju.com/v2-upload/ynee020u.jpg" />
+                  <img src={config.img1} />
                   <div className="buttons">
                     {/* <span style={{ marginBottom: 10, alignSelf: 'flex-end', cursor: 'pointer' }}>报名须知<Icon type="question-circle" theme="outlined" /></span> */}
                     <Button size="large" type="primary" onClick={this.handleButtonClick}>{this.state.myData.majsoulUserName ? '我的报名' : '立即报名'}</Button>
@@ -253,7 +253,7 @@ class App extends Component {
               </div>
               <div className="section">
                 <div className="main second">
-                  <img src="http://cdn.cc98file0.inzju.com/v2-upload/nuvn5yis.jpg" />
+                  <img src={config.img2} />
                   <div className="table">
                     <p className="info">当前报名情况：通过审核{this.state.globalData.verifiedCount}人，正在审核{this.state.globalData.verifyingCount}人</p>
                     <p className="info">以下为通过审核成功报名的用户</p>

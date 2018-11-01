@@ -1,4 +1,6 @@
 {
   "api": "https://api0.cc98.inzju.com",
-  "oauth": "https://openid0.cc98.inzju.com/connect/token"
+  "oauth": "https://openid0.cc98.inzju.com/connect/token",
+  "img1": "http://cdn.cc98file0.inzju.com/v2-upload/ynee020u.jpg",
+  "img2": "http://cdn.cc98file0.inzju.com/v2-upload/nuvn5yis.jpg"
 }

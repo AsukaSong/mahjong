@@ -29,10 +29,10 @@ class Login extends React.Component {
         confirmLoading={this.props.isSignuping}
       >
         <Form>
-          <FormItem label="雀魂用户名">
+          <FormItem label="雀魂昵称">
             {this.props.form.getFieldDecorator('MajsoulUserName', {
               rules: [
-                { required: true, message: '请输入雀魂用户名' },
+                { required: true, message: '请输入雀魂昵称' },
                 { max: 20, message: '最多20个字符' }
               ]
             })(<Input autoComplete="off" onKeyDown={this.handleKeyDown} />)}
