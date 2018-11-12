@@ -8,7 +8,7 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import Detail from './components/SignupStatus'
 
-import config from './config.in.json'
+import config from './config.json'
 import text from './detail'
 
 import { logIn, signup, getGlobalStatus, getMyStatus } from './network'
@@ -207,8 +207,9 @@ class App extends Component {
                 <div className="main first">
                   <img src={config.img1} />
                   <div className="buttons">
+                    <p>报名成功的用户请使用登记的QQ号加群：795158583</p>
                     {/* <span style={{ marginBottom: 10, alignSelf: 'flex-end', cursor: 'pointer' }}>报名须知<Icon type="question-circle" theme="outlined" /></span> */}
-                    <Button size="large" type="primary" onClick={this.handleButtonClick}>{this.state.myData.majsoulUserName ? '我的报名' : '立即报名'}</Button>
+                    <Button size="large" type="primary" disabled={!this.state.myData.majsoulUserName} onClick={this.handleButtonClick}>{this.state.myData.majsoulUserName ? '我的报名' : '报名已满'}</Button>
                     <Button onClick={() => this.changeInfoIsShown(true)} size="large">报名须知</Button>
                     <Button onClick={() => window.location.hash="#info"} size="large">参赛人员</Button>
                   </div>

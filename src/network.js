@@ -1,4 +1,4 @@
-import config from './config.in.json'
+import config from './config.json'
 import { setLocalStorage, getLocalStorage } from './utils'
 
 import { message } from 'antd'

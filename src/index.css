@@ -97,6 +97,16 @@ body::-webkit-scrollbar {
   transform: translate(-50%, 0);
 }
 
+.buttons p {
+  white-space: nowrap;
+  position: absolute;
+  top: -80px;
+  right: 50%;
+  transform: translate(50%);
+  font-size: x-large;
+  color: red;
+}
+
 .buttons button {
   margin-bottom: 40px;
 }
