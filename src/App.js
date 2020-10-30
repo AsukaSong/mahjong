@@ -107,9 +107,10 @@ class App extends Component {
     this.setState({ issignuping: true })
     await signup(vals)
     this.setState({ issignuping: false, signupIsShown: false })
+    this.getMyStatus()
     this.getGolbalData()
   }
-  
+
   changeLoginIsShown = status => {
     this.setState({
       loginIsShown: status,
@@ -179,7 +180,7 @@ class App extends Component {
     return (
       <>
         <div className="top">
-          <a className="title">CC98雀魂日麻大赛·2018</a>
+          <a className="title">CC98雀魂日麻大赛·{config.year}</a>
           <div>
             {!this.state.isLogin ? (
               <a onClick={() => this.changeLoginIsShown(true)}>点我登录</a>
@@ -199,7 +200,7 @@ class App extends Component {
           lazyLoading={false}
           normalScrollElements={'#normal, #modal'}
           scrollBar
-          fitToSectionDelay={200}
+          // fitToSectionDelay={200}
           navigation
           render={(state, fullpage_api) => (
             <ReactFullpage.Wrapper>
@@ -209,7 +210,7 @@ class App extends Component {
                   <div className="buttons">
                     <p>报名成功的用户请使用登记的QQ号加群：795158583</p>
                     {/* <span style={{ marginBottom: 10, alignSelf: 'flex-end', cursor: 'pointer' }}>报名须知<Icon type="question-circle" theme="outlined" /></span> */}
-                    <Button size="large" type="primary" disabled={!this.state.myData.majsoulUserName} onClick={this.handleButtonClick}>{this.state.myData.majsoulUserName ? '我的报名' : '报名已满'}</Button>
+                    <Button size="large" disabled={!this.state.myData.majsoulUserName} type="primary" onClick={this.handleButtonClick}>{this.state.myData.majsoulUserName ? '我的报名' : '报名已满'}</Button>
                     <Button onClick={() => this.changeInfoIsShown(true)} size="large">报名须知</Button>
                     <Button onClick={() => window.location.hash="#info"} size="large">参赛人员</Button>
                   </div>
@@ -233,7 +234,7 @@ class App extends Component {
                   <Modal
                     visible={this.state.infoIsShown}
                     getContainer={() => document.getElementById('modal')}
-                    title='CC98雀魂日麻大赛·2018'
+                    title={`CC98雀魂日麻大赛·${config.year}`}
                     footer={<Button type="primary" onClick={() => {
                       this.changeInfoIsShown(false)
                       if(!getLocalStorage('detail') && this.state.isLogin && this.state.frombutton) {

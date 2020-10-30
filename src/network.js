@@ -65,7 +65,7 @@ export async function logIn({ username, password }) {
 
 export async function signup(vals) {
   try {
-    const res = await fetch(config.api + '/enroll/majsoul2018/register', {
+    const res = await fetch(config.api + '/enroll/majsoul/register?year=' + config.year, {
       method: 'POST',
       headers: new Headers({
         Authorization: getLocalStorage('token'),
@@ -88,7 +88,7 @@ export async function signup(vals) {
 
 export async function getMyStatus() {
   try {
-    const res = await fetch(config.api + '/enroll/majsoul2018/me', {
+    const res = await fetch(config.api + '/enroll/majsoul/me?year=' + config.year, {
       headers: new Headers({
         Authorization: getLocalStorage('token'),
       }),
@@ -106,7 +106,7 @@ export async function getMyStatus() {
 
 export async function getGlobalStatus() {
   try {
-    const res = await fetch(config.api + '/enroll/majsoul2018/global')
+    const res = await fetch(config.api + '/enroll/majsoul/global?year=' + config.year)
 
     if(!res.ok) throw new Error(res.statusText)
 

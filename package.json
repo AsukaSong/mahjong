@@ -1,10 +1,10 @@
 {
-  "name": "mohjong",
+  "name": "mahjong",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@babel/core": "7.1.0",
-    "@fullpage/react-fullpage": "^0.1.2",
+    "@fullpage/react-fullpage": "^0.1.16",
     "@svgr/webpack": "2.4.1",
     "antd": "^3.10.3",
     "babel-core": "7.0.0-bridge.0",

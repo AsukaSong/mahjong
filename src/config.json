@@ -1,6 +1,7 @@
 {
-  "api": "https://api1.cc98.vaynetian.com",
-  "oauth": "https://openid1.cc98.vaynetian.com",
-  "img1": "http://cdn.cc98file0.inzju.com/v2-upload/ynee020u.jpg",
-  "img2": "http://cdn.cc98file0.inzju.com/v2-upload/nuvn5yis.jpg"
+  "api": "https://qsh.api.cc98.top",
+  "oauth": "https://qsh.openid.cc98.top/connect/token",
+  "img1": "http://cdn.file.cc98.top/v2-upload/ynee020u.jpg",
+  "img2": "http://cdn.file.cc98.top/v2-upload/nuvn5yis.jpg",
+  "year": 2019
 }
