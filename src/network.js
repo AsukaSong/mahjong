@@ -36,7 +36,7 @@ export async function logIn({ username, password }) {
       body: encodeParams(requestBody),
     })
 
-    if(!response.ok) throw new Error('用户名或密码错误')
+    if (!response.ok) throw new Error('用户名或密码错误')
 
     const data = await response.json()
 
@@ -51,14 +51,14 @@ export async function logIn({ username, password }) {
     const info = await res.json()
     if (info.lockState === 1 || info.lockState === 2) {
       throw new Error('账号已锁定');
-  }
+    }
 
-    message.success('登陆成功')
+    message.success('登录成功')
     setLocalStorage('token', token, data.expires_in)
     setLocalStorage('userinfo', info)
 
     return info
-  } catch(e) {
+  } catch (e) {
     message.error(e.message)
   }
 }
@@ -75,10 +75,10 @@ export async function signup(vals) {
     })
     console.log(res)
 
-    if(!res.ok) throw new Error(await res.text())
+    if (!res.ok) throw new Error(await res.text())
     message.success('报名成功')
-  } catch(e) {
-    if(e.message === 'already_registered') {
+  } catch (e) {
+    if (e.message === 'already_registered') {
       message.error('你已经报名过了')
       return
     }
@@ -94,12 +94,12 @@ export async function getMyStatus() {
       }),
     })
 
-    if(!res.ok) throw new Error(res.statusText)
-    if(res.status === 204) return null
+    if (!res.ok) throw new Error(res.statusText)
+    if (res.status === 204) return null
 
     const data = await res.json()
     return data
-  } catch(e) {
+  } catch (e) {
     message.error(e.message)
   }
 }
@@ -108,11 +108,11 @@ export async function getGlobalStatus() {
   try {
     const res = await fetch(config.api + '/enroll/majsoul/global?year=' + config.year)
 
-    if(!res.ok) throw new Error(res.statusText)
+    if (!res.ok) throw new Error(res.statusText)
 
     const data = await res.json()
     return data
-  } catch(e) {
+  } catch (e) {
     message.error(e.message)
   }
 }

@@ -73,10 +73,10 @@ class App extends Component {
   ]
 
   login = async (params) => {
-    if(this.state.islogining) return
+    if (this.state.islogining) return
     this.setState({ islogining: true })
     const info = await logIn(params)
-    if(!info) {
+    if (!info) {
       this.setState({
         islogining: false
       })
@@ -136,12 +136,12 @@ class App extends Component {
   }
 
   handleButtonClick = () => {
-    if(!this.state.isLogin) {
+    if (!this.state.isLogin) {
       message.info('请先登录')
       this.changeLoginIsShown(true)
-    } else if(this.state.myData.majsoulUserName) {
+    } else if (this.state.myData.majsoulUserName) {
       this.changeDetailIsShown(true)
-    } else if(!getLocalStorage('detail')) {
+    } else if (!getLocalStorage('detail')) {
       this.setState({ frombutton: true })
       this.changeInfoIsShown(true)
     } else {
@@ -151,7 +151,7 @@ class App extends Component {
 
   getGolbalData = async () => {
     const globalData = await getGlobalStatus()
-    if(globalData) {
+    if (globalData) {
       this.setState({
         globalData,
       })
@@ -160,7 +160,7 @@ class App extends Component {
 
   getMyStatus = async () => {
     const myData = await getMyStatus()
-    if(myData) {
+    if (myData) {
       this.setState({
         myData,
       })
@@ -168,11 +168,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    if(window.location.hash === '#info') {
+    if (window.location.hash === '#info') {
       window.location.href = '#main'
     }
 
-    if(this.state.isLogin) this.getMyStatus()
+    if (this.state.isLogin) this.getMyStatus()
     this.getGolbalData()
   }
 
@@ -180,11 +180,11 @@ class App extends Component {
     return (
       <>
         <div className="top">
-          <a className="title">CC98雀魂日麻大赛·{config.year}</a>
+          <a className="title">CC98雀魂麻将大赛·{config.year}</a>
           <div>
             {!this.state.isLogin ? (
               <a onClick={() => this.changeLoginIsShown(true)}>点我登录</a>
-            ): (
+            ) : (
               <>
                 <Avatar src={this.state.userInfo.portraitUrl} />
                 <a href="#">{this.state.userInfo.name}</a>
@@ -211,8 +211,9 @@ class App extends Component {
                     <p>报名成功的用户请使用登记的QQ号加群：795158583</p>
                     {/* <span style={{ marginBottom: 10, alignSelf: 'flex-end', cursor: 'pointer' }}>报名须知<Icon type="question-circle" theme="outlined" /></span> */}
                     <Button size="large" disabled={!this.state.myData.majsoulUserName} type="primary" onClick={this.handleButtonClick}>{this.state.myData.majsoulUserName ? '我的报名' : '报名已满'}</Button>
+                    {/* <Button size="large" type="primary" onClick={this.handleButtonClick}>{this.state.myData.majsoulUserName ? '我的报名' : '立即报名'}</Button> */}
                     <Button onClick={() => this.changeInfoIsShown(true)} size="large">报名须知</Button>
-                    <Button onClick={() => window.location.hash="#info"} size="large">参赛人员</Button>
+                    <Button onClick={() => window.location.hash = "#info"} size="large">参赛人员</Button>
                   </div>
                   <Login
                     login={this.login}
@@ -234,10 +235,10 @@ class App extends Component {
                   <Modal
                     visible={this.state.infoIsShown}
                     getContainer={() => document.getElementById('modal')}
-                    title={`CC98雀魂日麻大赛·${config.year}`}
+                    title={`CC98雀魂麻将大赛·${config.year}`}
                     footer={<Button type="primary" onClick={() => {
                       this.changeInfoIsShown(false)
-                      if(!getLocalStorage('detail') && this.state.isLogin && this.state.frombutton) {
+                      if (!getLocalStorage('detail') && this.state.isLogin && this.state.frombutton) {
                         this.changeSignupIsShown(true)
                         this.setState({
                           frombutton: false
@@ -249,7 +250,7 @@ class App extends Component {
                     closable={false}
                     className="detail_modal"
                   >
-                    {text.map(item =><span className={item.length < 10 ? 'detail_title' : ''}>{item}</span>)}
+                    {text.map(item => <span className={item.length < 10 ? 'detail_title' : ''}>{item}</span>)}
                   </Modal>
                 </div>
               </div>
