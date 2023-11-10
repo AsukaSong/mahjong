@@ -800,9 +800,9 @@
     glob-to-regexp "^0.3.0"
 
 "@nodelib/fs.stat@^1.0.1":
-  version "1.1.2"
+  version "1.1.1"
   resolved "http://registry.npm.taobao.org/@nodelib/fs.stat/download/@nodelib/fs.stat-1.1.2.tgz#54c5a964462be3d4d78af631363c18d6fa91ac26"
-  integrity sha1-VMWpZEYr49TXivYxNjwY1vqRrCY=
+  integrity "sha1-U/NJu5hqsnPWARdaobJaZVq5DuM= sha512-KU/VDjC5RwtDUZiz3d+DHXJF2lp5hB9dn552TXIyptj8SH1vXmR40mG0JgGq03IlYsOgGfcv8xrLpSQ0YUMQdA=="
 
 "@svgr/core@^2.4.1":
   version "2.4.1"
@@ -1141,9 +1141,9 @@ ant-design-palettes@^1.1.3:
     tinycolor2 "^1.4.1"
 
 antd@^3.10.3:
-  version "3.10.3"
+  version "3.10.10"
   resolved "http://registry.npm.taobao.org/antd/download/antd-3.10.3.tgz#7b28eb5c005c3c9701366c46f2f2e52d9e175b62"
-  integrity sha1-eyjrXABcPJcBNmxG8vLlLZ4XW2I=
+  integrity "sha1-u1nBsymFzbrKTdc9rHdQDdOTNlk= sha512-7XtpyRuo9R/qSOgV7VaSzvDTlo/QNhettIJHXAZI/ZPqbU6Q9MeTaQwzDWVIG9/YobLTd/+pZoNeaHDXaBYGWw=="
   dependencies:
     "@ant-design/icons" "~1.1.15"
     "@ant-design/icons-react" "~1.1.2"
@@ -1152,7 +1152,7 @@ antd@^3.10.3:
     classnames "~2.2.6"
     create-react-class "^15.6.3"
     create-react-context "0.2.3"
-    css-animation "^1.4.1"
+    css-animation "^1.5.0"
     dom-closest "^0.2.0"
     enquire.js "^2.1.6"
     intersperse "^1.0.0"
@@ -1182,11 +1182,11 @@ antd@^3.10.3:
     rc-steps "~3.3.0"
     rc-switch "~1.8.0"
     rc-table "~6.3.4"
-    rc-tabs "~9.4.6"
+    rc-tabs "~9.5.1"
     rc-time-picker "~3.4.0"
     rc-tooltip "~3.7.3"
     rc-tree "~1.14.6"
-    rc-tree-select "~2.3.1"
+    rc-tree-select "~2.4.0"
     rc-trigger "^2.6.2"
     rc-upload "~2.6.0"
     rc-util "^4.5.1"

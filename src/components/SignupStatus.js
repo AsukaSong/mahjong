@@ -10,7 +10,7 @@ const colStyle = {
   justifyContent: 'flex-end',
 }
 
-export default ({userName, isShown, changeStatus, isVerified, majsoulUserName, time, qq, phone}) =>  (
+export default ({ userName, isShown, changeStatus, isVerified, majsoulUserName, majsoulUserId, time, qq, phone }) => (
   <Modal
     visible={isShown}
     title="我的报名状态"
@@ -27,6 +27,11 @@ export default ({userName, isShown, changeStatus, isVerified, majsoulUserName, t
       <Col style={colStyle} span={7}>雀魂昵称：</Col>
       <Col span={1} />
       <Col span={16}>{majsoulUserName}</Col>
+    </Row>
+    <Row style={rowStyle}>
+      <Col style={colStyle} span={7}>雀魂数字ID：</Col>
+      <Col span={1} />
+      <Col span={16}>{majsoulUserId}</Col>
     </Row>
     <Row style={rowStyle}>
       <Col style={colStyle} span={7}>报名时间：</Col>

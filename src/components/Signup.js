@@ -5,13 +5,13 @@ const FormItem = Form.Item
 class Login extends React.Component {
   handleOk = () => {
     this.props.form.validateFields(null, {}, (err, vals) => {
-      if(err) return
+      if (err) return
       this.props.signup(vals)
     })
   }
 
   handleKeyDown = e => {
-    if(e.key === 'Enter') {
+    if (e.key === 'Enter') {
       this.handleOk()
     }
   }
@@ -37,11 +37,19 @@ class Login extends React.Component {
               ]
             })(<Input autoComplete="off" onKeyDown={this.handleKeyDown} />)}
           </FormItem>
+          <FormItem label="雀魂数字ID">
+            {this.props.form.getFieldDecorator('MajsoulUserID', {
+              rules: [
+                { required: true, message: '请输入雀魂数字ID' },
+                { max: 20, message: '最多20个字符' }
+              ]
+            })(<Input autoComplete="off" onKeyDown={this.handleKeyDown} />)}
+          </FormItem>
           <FormItem label="QQ">
             {this.props.form.getFieldDecorator('QQ', {
               rules: [
                 { required: true, message: '请输入QQ' },
-                { max: 20, message: '最多20个字符' } 
+                { max: 20, message: '最多20个字符' }
               ]
             })(<Input autoComplete="off" onKeyDown={this.handleKeyDown} />)}
           </FormItem>
@@ -49,7 +57,7 @@ class Login extends React.Component {
             {this.props.form.getFieldDecorator('Phone', {
               rules: [
                 { required: true, message: '请输入手机号码' },
-                { max: 20, message: '最多20个字符' } 
+                { max: 20, message: '最多20个字符' }
               ]
             })(<Input autoComplete="off" onKeyDown={this.handleKeyDown} />)}
           </FormItem>
